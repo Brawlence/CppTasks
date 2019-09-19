@@ -1,4 +1,5 @@
 .vscode/ipch/*
+.vscode\*
 test.exe
 main.exe
 test
