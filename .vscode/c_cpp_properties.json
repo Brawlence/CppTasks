@@ -27,7 +27,7 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "usr/bin/g++",
+            "compilerPath": "/usr/bin/g++",
             "intelliSenseMode": "gcc-x64",
             "browse": {"path": [
                 "${workspaceFolder}"
