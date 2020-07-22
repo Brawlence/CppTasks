@@ -7,6 +7,7 @@
 // and adding a global var to this code
 // this task probably judges knowledge of Static Order Initialization Fiasco
 #include <iostream>
+
 class A {
 public:
 	A() {std::cout<<"Hello World!";}
@@ -14,6 +15,7 @@ public:
 
 A a;
 
+// TASK BEGINS HERE
 // this program with this main needs to write "Hello World!" to stdout
 int main(void)
 {
