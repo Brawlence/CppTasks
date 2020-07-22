@@ -16,36 +16,13 @@
                     //},
                 },
                 "command": "g++.exe",
-                "args": ["-o", "\"${workspaceFolder}\\test.exe\"", "-g", "\"${file}\""]
+                "args": ["-o", "\"${workspaceFolder}\\testBinary.exe\"", "-g", "\"${file}\""]
             },
             "linux": {
                 "command": "/usr/bin/g++",
-                "args": ["-o", "${workspaceFolder}/test", "-g", "${file}"]
+                "args": ["-o", "${workspaceFolder}/testBinary", "-g", "${file}"]
             },
-
             "group": {"kind": "build", "isDefault": true}
-        },
-        {
-            "label": "Build main",
-            "type": "shell",
-
-            "windows":{
-                "options": {
-                    "cwd": "C:/msys2/mingw64/bin/",
-                    //"shell": {
-                    //      "executable": "C:/msys2/mingw64.exe",
-                    ////      "args": ["/d", "/c"] // windws CMD args, don't use for mingw64
-                    //},
-                },
-                "command": "C:/msys2/mingw64/bin/g++.exe",
-                "args": ["-o", "\"${workspaceFolder}\\main.exe\"", "-g", "\"${file}\""]
-            },
-            "linux": {
-                "command": "/usr/bin/g++",
-                "args": ["-o", "${workspaceFolder}/main", "-g", "${file}"]
-            },
-
-            "group": "build"
         }
     ]
 }
