@@ -3,8 +3,8 @@
 class TestClass {
 	private:
 		static int amount;
-	public:
 		int self_number;
+	public:
 		int always_one;
 		int counter;
 		static int static_counter;
