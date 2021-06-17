@@ -22,7 +22,37 @@
                 "command": "/usr/bin/g++",
                 "args": ["-o", "${workspaceFolder}/testBinary", "-g", "${file}"]
             },
-            "group": {"kind": "build", "isDefault": true}
+            "group": "build"
+        },
+        {
+            "label": "Build all files in current dir",
+            "type": "shell",
+
+            "windows":{
+                "options": {
+                    "cwd": "C:/msys2/usr/bin",
+                },
+                "command": "g++.exe",
+                "args": ["-o", "\"${workspaceFolder}/testBinary.exe\"",
+                         "-g", "\"${fileDirname}/**.cpp\"",
+                               //"\"${fileDirname}/**.c\"",
+                               "\"${fileDirname}/**.hpp\"",
+                               //"\"${fileDirname}/**.h\""
+                        ]
+            },
+            "linux": {
+                "command": "/usr/bin/g++",
+                "args": ["-o", "${workspaceFolder}/testBinary",
+                         "-g", "${fileDirname}/**.cpp",
+                             //"${fileDirname}/**.c",
+                               "${fileDirname}/**.hpp",
+                             //"${fileDirname}/**.h"
+                        ]
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
