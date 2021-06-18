@@ -9,26 +9,51 @@
 int maxVersion = 1; // the current version
 int knownFBV = 1; 	 // known First Bad Version
 
+class Api { 
+private:
+	int api_calls_made;
+public:
+	bool isBadVersion(int n) {
+		api_calls_made++;
+		return (n >= knownFBV);
+	};
+
+	void setZero () {
+		api_calls_made = 0;
+	}
+
+	int reportCalls () {
+		return api_calls_made;
+	}
+};
+
+static Api api_handler;
+
 // simulating the provided API
-bool isBadVersion(int n) {
-	return (n >= knownFBV);
-}
+bool isBadVersion(int version) {
+	return api_handler.isBadVersion(version);
+};
 
 int main() {
 	Solution fast_Log;
 	SolutionNaive slow_Linear;
-	printf("Testing binary search vs naive decrement\nEnter the most recent version of software (solutions will start their search from here) -- integer:\n");
+	printf("Testing binary search vs naive decrement\n\nEnter the most recent version,\nsolutions will start their search from this point:\nINT N = ");
 	scanf("%i", &maxVersion);
-	printf("Enter the known first bad version (the right answer, solutons won't have access to it) -- also integer):\n");
+	printf("\nEnter the known first bad version.\nThis is the right answer, solutons won't have access to it:\nINT firstBadVersion = ");
 	scanf("%i", &knownFBV);
 
 	getchar();
 
-	printf("result (binsearch): %i\n", fast_Log.firstBadVersion(maxVersion));
+	int result = fast_Log.firstBadVersion(maxVersion);
+	int callsAmount = api_handler.reportCalls();
+	printf("\nBinsearch result: %i,\n calls to api: %i\n", result, callsAmount);
 
 	getchar();
+	api_handler.setZero();
 
-	printf("result (decrement): %i\n", slow_Linear.firstBadVersion(maxVersion));
+	result = slow_Linear.firstBadVersion(maxVersion);
+	callsAmount = api_handler.reportCalls();
+	printf("Decrement result: %i,\n calls to api: %i\n", result, callsAmount);
 
 	getchar();
 
