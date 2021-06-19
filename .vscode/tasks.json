@@ -36,7 +36,7 @@
                 "args": ["-o", "\"${workspaceFolder}/testBinary.exe\"",
                          "-g", "\"${fileDirname}/**.cpp\"",
                                //"\"${fileDirname}/**.c\"",
-                               "\"${fileDirname}/**.hpp\"",
+                               //"\"${fileDirname}/**.hpp\"", // headers are included automatically
                                //"\"${fileDirname}/**.h\""
                         ]
             },
@@ -45,7 +45,7 @@
                 "args": ["-o", "${workspaceFolder}/testBinary",
                          "-g", "${fileDirname}/**.cpp",
                              //"${fileDirname}/**.c",
-                               "${fileDirname}/**.hpp",
+                             //"${fileDirname}/**.hpp", // headers are included automatically
                              //"${fileDirname}/**.h"
                         ]
             },
