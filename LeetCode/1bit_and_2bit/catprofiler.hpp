@@ -63,9 +63,9 @@ struct ProfileScope {
 
 
 #ifndef CAT_DISABLE_PROFILING
-#define CAT_PROFILE() ProfileScope _prof_util__ {__FUNCTION__}
-#define CAT_PROFILE_SCOPE(x) ProfileScope _prof_util_scope__{__FUNCTION__, x}
+    #define CAT_PROFILE() ProfileScope _prof_util__ {__FUNCTION__}
+    #define CAT_PROFILE_SCOPE(x) ProfileScope _prof_util_scope__{__FUNCTION__, x}
 #else
-#define CAT_PROFILE() do {} while(0)
-#define CAT_PROFILE_SCOPE(x) do {} while(0)
+    #define CAT_PROFILE() do {} while(0)
+    #define CAT_PROFILE_SCOPE(x) do {} while(0)
 #endif

@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <ctime> // time
 
 #include "catprofiler.hpp"
 
@@ -40,44 +41,70 @@ void printVector (vector<int> &bits) {
 	cout << endl;
 }
 
+void reportResult (const char * reporteeName, bool & result) {
+	cout << endl << reporteeName << " reports: ";
+	if (result) {
+		cout << "The last character of this sequence is one-bit\n";
+	} else {
+		cout << "The last character of this sequence is two-bits\n";
+	}
+}
+
 int main() {
 	CAT_PROFILE();
+	srand(time(0));
 	string input = " ";
 	vector<int> bits;
 	
-	cout << "Enter the bit string to reinterpret.\nAllowed values: 1/0 T/F t/f:\n_";
-	cin >> noskipws >> input;
+	cout << "\nGenerate a vector?\nY/N:" << endl;
+	auto temp = cin.get();
+	if (temp == 'Y' || temp == 'y') {
+		cout << "Enter a power of two (INT):";
+		auto temp_power = 0;
+		cin >> temp_power;
+		temp_power = 2 << temp_power;
+		cout << "\nGenerating the vector...\n";
+		for (int i = 0; i < temp_power; i++) {
+			bits.push_back(rand()%2);
+		};
+		bits.push_back(0);
+	} else {
+		cin.get();
+		cout << "Enter the bit string to reinterpret.\nAllowed values: 1/0 T/F t/f:\n_";
+		cin >> noskipws >> input;
 
-	strToVector(input, bits);
+		strToVector(input, bits);
+
+		cout << "\nReinterpreted string as vector<int>:\n";
+		printVector(bits);
+	}
 	
-	cout << "\nReinterpreted string as vector<int>:\n";
-	printVector(bits);
 
 	cin.get();
 
 	bool result1;
 	{
-		CAT_PROFILE_SCOPE("while loop");
-		Solution whileLoop;
-		result1 = whileLoop.isOneBitCharacter(bits);
+		CAT_PROFILE_SCOPE("Bactracker loop");
+		Solution backtracker;
+		result1 = backtracker.isOneBitCharacter(bits);
 	}
-	if (result1) {
-		cout << "\nThe last character of this sequence is one-bit";
-	} else {
-		cout << "\nThe last character of this sequence is two-bits";
-	}
+	reportResult("Backtracker", result1);
 
 	bool result2;
 	{
-		CAT_PROFILE_SCOPE("for loop");
+		CAT_PROFILE_SCOPE("While loop");
+		SolutionWhileLoop whileLoop;
+		result2 = whileLoop.isOneBitCharacter(bits);
+	}
+	reportResult("While loop", result2);
+
+	bool result3;
+	{
+		CAT_PROFILE_SCOPE("For loop");
 		SolutionForLoop forLoop;
-		result2 = forLoop.isOneBitCharacter(bits);
+		result3 = forLoop.isOneBitCharacter(bits);
 	}
-	if (result2) {
-		cout << "\nThe last character of this sequence is one-bit";
-	} else {
-		cout << "\nThe last character of this sequence is two-bits";
-	}
+	reportResult("For loop", result3);
 
 	cin.get();
 

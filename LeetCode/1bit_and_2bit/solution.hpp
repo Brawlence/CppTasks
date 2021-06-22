@@ -1,7 +1,20 @@
 // https://leetcode.com/problems/1-bit-and-2-bit-characters/
 
-// WHILE loop solution
+// Backtracking solution
 class Solution {
+public:
+	bool isOneBitCharacter(std::vector<int>& bits) {
+		int size = bits.size(), i = size - 1;
+		if (bits.at(i) == 0) return true;
+		while ((i > 0) && (bits.at(i-1) == 1)) {
+			i--;
+		}
+		return (size+1-i)%2;
+	}
+};
+
+// WHILE loop solution
+class SolutionWhileLoop {
 public:
 	bool isOneBitCharacter(std::vector<int>& bits) {
 		int i = 0, size = bits.size();
