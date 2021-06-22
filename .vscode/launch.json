@@ -8,7 +8,7 @@
             "name": "Debug this",
             "type": "cppdbg",
             "request": "launch",
-            "preLaunchTask": "Build current file",
+            //"preLaunchTask": "Build current file",
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
