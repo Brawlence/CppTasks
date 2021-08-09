@@ -2,17 +2,20 @@
 // this is a complimentary support file which handles user input and output
 // for the solutions (defined in solution.hpp) to work
 
-#include <cstdio>
+// using c-style input and output without streams
+// line output is made using printf(), integer input is scanf() and pauses are getchar()
+#include <cstdio> 
 
 #include "solution.hpp"
 
-int maxVersion = 1; // the current version
-int knownFBV = 1; 	 // known First Bad Version
+// Simulating the statedly provided API of isBadVersion()
 
-class Api { 
+class ExistingApi {
 private:
 	int api_calls_made;
 public:
+	int knownFBV = 1;	// known First Bad Version
+
 	bool isBadVersion(int n) {
 		api_calls_made++;
 		return (n >= knownFBV);
@@ -27,9 +30,8 @@ public:
 	}
 };
 
-static Api api_handler;
+static ExistingApi api_handler;
 
-// simulating the provided API
 bool isBadVersion(int version) {
 	return api_handler.isBadVersion(version);
 };
@@ -38,9 +40,11 @@ int main() {
 	Solution fast_Log;
 	SolutionNaive slow_Linear;
 	printf("Testing binary search vs naive decrement\n\nEnter the most recent version,\nsolutions will start their search from this point:\nINT N = ");
+
+	int maxVersion = 1;	// the current version
 	scanf("%i", &maxVersion);
 	printf("\nEnter the known first bad version.\nThis is the right answer, solutons won't have access to it:\nINT firstBadVersion = ");
-	scanf("%i", &knownFBV);
+	scanf("%i", &api_handler.knownFBV);
 
 	getchar();
 
