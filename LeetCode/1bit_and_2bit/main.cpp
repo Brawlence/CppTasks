@@ -2,12 +2,14 @@
 // this is a complimentary support file which handles user input and output
 // for the solutions (defined in solution.hpp) to work
 
+// using cpp-style input and output with streams
+// line output is made using cout/puts(), input is cin/gets() and pauses are cin.get()
 #include <iostream>
 #include <string>
 #include <vector>
-#include <ctime> // time
+#include <ctime>			// for vector randomization
 
-#include "catprofiler.hpp"
+#include "catprofiler.hpp"	// primitive in-house profiler
 
 #include "solution.hpp"
 
