@@ -2,21 +2,21 @@
 
 class BisectSolution {
 public:
-    int search(vector<int>& nums, int target) {
-        int high = nums.size() - 1;
-        int mid;
-        int low = 0;
-        while (low <= high) {
-            mid = ( low + high ) >> 1;
-            if (nums[mid] == target) return mid;
-            if (target < nums[mid]) {
-                high = mid - 1; // mid was already checked, so assign the one before it
-            } else {
-                low = mid + 1; // mid was already checked, so assign the one above it
-            }
-        }
-        return -1;
-    }
+	int search(vector<int>& nums, int target) {
+		int high = nums.size() - 1;
+		int mid;
+		int low = 0;
+		while (low <= high) {
+			mid = ( low + high ) >> 1;
+			if (nums[mid] == target) return mid;
+			if (target < nums[mid]) {
+				high = mid - 1; // mid was already checked, so assign the one before it
+			} else {
+				low = mid + 1; // mid was already checked, so assign the one above it
+			}
+		}
+		return -1;
+	}
 };
 
 class SemiBisectSolution {
