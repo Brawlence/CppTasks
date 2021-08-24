@@ -4,9 +4,8 @@
 
 #include <iostream>
 
+using namespace std; // because everything in "solution.hpp" as well as here is part of std
 #include "solution.hpp"
-
-using namespace std;
 
 int main() {
 

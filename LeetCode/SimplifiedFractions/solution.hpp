@@ -4,8 +4,6 @@
 #include <string>
 #include <numeric> //gcd 
 
-using namespace std;
-
 class Solution {
 public:
 	vector<string> simplifiedFractions(int denominator) {
