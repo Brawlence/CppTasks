@@ -9,13 +9,13 @@
 
             "windows":{
                 "options": {
-                    "cwd": "C:/msys2/usr/bin",
+                    "cwd": "C:/msys2/mingw64/bin",
                     //"shell": {
                     //      "executable": "C:/msys2/mingw64.exe",
                     ////      "args": ["/d", "/c"]   // - windws CMD args, don't use for mingw64
                     //},
                 },
-                "command": "g++.exe",
+                "command": "C:/msys2/mingw64/bin/g++.exe",
                 "args": ["-o", "\"${workspaceFolder}\\testBinary.exe\"", "-g", "\"${file}\""]
             },
             "linux": {
@@ -30,9 +30,9 @@
 
             "windows":{
                 "options": {
-                    "cwd": "C:/msys2/usr/bin",
+                    "cwd": "C:/msys2/mingw64/bin",
                 },
-                "command": "g++.exe",
+                "command": "C:/msys2/mingw64/bin/g++.exe",
                 "args": ["-o", "\"${workspaceFolder}/testBinary.exe\"",
                          "-g", "\"${fileDirname}/**.cpp\"",
                                //"\"${fileDirname}/**.c\"",

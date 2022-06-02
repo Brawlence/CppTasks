@@ -15,7 +15,7 @@
             "externalConsole": true,
             "MIMode": "gdb",
             "windows":{
-                "miDebuggerPath": "C:/msys2/usr/bin/gdb.exe",
+                "miDebuggerPath": "C:/msys2/mingw64/bin/gdb.exe",
                 "program": "${workspaceFolder}\\testBinary.exe",
                 "args": []
             },
