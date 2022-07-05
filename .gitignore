@@ -1,5 +1,6 @@
 .vscode/ipch/*
 .vscode\*
 
+*.log
 *.exe
 testBinary*
